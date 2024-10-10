@@ -1,0 +1,501 @@
+[
+  {
+    "Country": "Andorra",
+    "Code": "AD",
+    "Example URL": "api.zippopotam.us/AD/AD100",
+    "Range": "AD100 : AD700",
+	  "Regex": "AD[1-7]00",
+    "EditingRegex": "(A(D([1-7](00?)?)?)?)?",
+    "Count": 7
+  },
+  {
+    "Country": "Argentina",
+    "Code": "AR",
+    "Example URL": "api.zippopotam.us/AR/1601",
+    "Range": "1601 : 9431",
+	  "Regex": "[A-HJ-NP-Z]?\\d{4}",
+    "EditingRegex": "([A-HJ-NP-Z]\\d{0,4})?",
+    "Count": 20260
+  },
+  {
+    "Country": "American Samoa",
+    "Code": "AS",
+    "Example URL": "api.zippopotam.us/AS/96799",
+    "Range": "96799 : 96799",
+	  "Regex": "96799",
+    "EditingRegex": "(9(6(7(99?)?)?)?)?",
+    "Count": 1
+  },
+  {
+    "Country": "Austria",
+    "Code": "AT",
+    "Example URL": "api.zippopotam.us/AT/1010",
+    "Range": "1010 : 9992",
+    "Count": 4877
+  },
+  {
+    "Country": "Australia",
+    "Code": "AU",
+    "Example URL": "api.zippopotam.us/AU/0200",
+    "Range": "0200 : 9726",
+    "Count": 10161
+  },
+  {
+    "Country": "Bangladesh",
+    "Code": "BD",
+    "Example URL": "api.zippopotam.us/BD/1000",
+    "Range": "1000 : 9461",
+    "Count": 1323
+  },
+  {
+    "Country": "Belgium",
+    "Code": "BE",
+    "Example URL": "api.zippopotam.us/BE/1000",
+    "Range": "1000 : 9992",
+    "Count": 3386
+  },
+  {
+    "Country": "Bulgaria",
+    "Code": "BG",
+    "Example URL": "api.zippopotam.us/BG/1000",
+    "Range": "1000 : 9974",
+    "Count": 5304
+  },
+  {
+    "Country": "Brazil",
+    "Code": "BR",
+    "Example URL": "api.zippopotam.us/BR/01000-000",
+    "Range": "01000-000 : 99990-000",
+    "Count": 5526
+  },
+  {
+    "Country": "Canada",
+    "Code": "CA",
+    "Example URL": "api.zippopotam.us/CA/A0A",
+    "Range": "A0A : Y1A",
+    "Count": 1621
+  },
+  {
+    "Country": "Switzerland",
+    "Code": "CH",
+    "Example URL": "api.zippopotam.us/CH/1000",
+    "Range": "1000 : 9658",
+    "Regex": "\\d{4}",
+    "EditingRegex": "\\d{0,4}",
+    "Count": 4614
+  },
+  {
+    "Country": "Czech Republic",
+    "Code": "CZ",
+    "Example URL": "api.zippopotam.us/CZ/100 00",
+    "Range": "100 00 : 798 62",
+    "Count": 15507
+  },
+  {
+    "Country": "Germany",
+    "Code": "DE",
+    "Example URL": "api.zippopotam.us/DE/01067",
+    "Range": "01067 : 99998",
+    "Count": 16482
+  },
+  {
+    "Country": "Denmark",
+    "Code": "DK",
+    "Example URL": "api.zippopotam.us/DK/0800",
+    "Range": "0800 : 9990",
+    "Count": 1182
+  },
+  {
+    "Country": "Dominican Republic",
+    "Code": "DO",
+    "Example URL": "api.zippopotam.us/DO/10101",
+    "Range": "10101 : 11906",
+    "Count": 546
+  },
+  {
+    "Country": "Spain",
+    "Code": "ES",
+    "Example URL": "api.zippopotam.us/ES/01001",
+    "Range": "01001 : 52080",
+	  "Regex": "\\d{5}",
+    "EditingRegex": "\\d{0,5}",
+    "Count": 56542
+  },
+  {
+    "Country": "Finland",
+    "Code": "FI",
+    "Example URL": "api.zippopotam.us/FI/00002",
+    "Range": "00002 : 99999",
+    "Count": 4637
+  },
+  {
+    "Country": "Faroe Islands",
+    "Code": "FO",
+    "Example URL": "api.zippopotam.us/FO/100",
+    "Range": "100 : 970",
+    "Count": 130
+  },
+  {
+    "Country": "France",
+    "Code": "FR",
+    "Example URL": "api.zippopotam.us/FR/01000",
+    "Range": "01000 : 98799",
+	  "Regex": "\\d{5}",
+    "EditingRegex": "\\d{0,5}",
+    "Count": 51129
+  },
+  {
+    "Country": "Great Britain",
+    "Code": "GB",
+    "Example URL": "api.zippopotam.us/GB/AB1",
+    "Range": "AB1 : ZE3",
+	  "Regex": "[A-Z][A-Z]\\d",
+    "EditingRegex": "([A-Z]([A-Z]\\d?)?)?",
+    "Count": 27769
+  },
+  {
+    "Country": "French Guyana",
+    "Code": "GF",
+    "Example URL": "api.zippopotam.us/GF/97300",
+    "Range": "97300 : 97390",
+    "Count": 25
+  },
+  {
+    "Country": "Guernsey",
+    "Code": "GG",
+    "Example URL": "api.zippopotam.us/GG/GY1",
+    "Range": "GY1 : GY9",
+    "Count": 8
+  },
+  {
+    "Country": "Greenland",
+    "Code": "GL",
+    "Example URL": "api.zippopotam.us/GL/2412",
+    "Range": "2412 : 3992",
+    "Count": 33
+  },
+  {
+    "Country": "Guadeloupe",
+    "Code": "GP",
+    "Example URL": "api.zippopotam.us/GP/97100",
+    "Range": "97100 : 97190",
+    "Count": 33
+  },
+  {
+    "Country": "Guatemala",
+    "Code": "GT",
+    "Example URL": "api.zippopotam.us/GT/01001",
+    "Range": "01001 : 22027",
+    "Count": 548
+  },
+  {
+    "Country": "Guam",
+    "Code": "GU",
+    "Example URL": "api.zippopotam.us/GU/96910",
+    "Range": "96910 : 96932",
+    "Count": 23
+  },
+  {
+    "Country": "Guyana",
+    "Code": "GY",
+    "Example URL": "api.zippopotam.us/GY/97312",
+    "Range": "97312 : 97360",
+    "Count": 9
+  },
+  {
+    "Country": "Croatia",
+    "Code": "HR",
+    "Example URL": "api.zippopotam.us/HR/10000",
+    "Range": "10000 : 53296",
+    "Count": 6943
+  },
+  {
+    "Country": "Hungary",
+    "Code": "HU",
+    "Example URL": "api.zippopotam.us/HU/1011",
+    "Range": "1011 : 9985",
+    "Count": 4041
+  },
+  {
+    "Country": "Isle of Man",
+    "Code": "IM",
+    "Example URL": "api.zippopotam.us/IM/IM1",
+    "Range": "IM1 : IM9",
+    "Count": 86
+  },
+  {
+    "Country": "India",
+    "Code": "IN",
+    "Example URL": "api.zippopotam.us/IN/110001",
+    "Range": "110001 : 855126",
+    "Count": 15226
+  },
+  {
+    "Country": "Iceland",
+    "Code": "IS",
+    "Example URL": "api.zippopotam.us/IS/101",
+    "Range": "101 : 902",
+    "Count": 148
+  },
+  {
+    "Country": "Italy",
+    "Code": "IT",
+    "Example URL": "api.zippopotam.us/IT/00010",
+    "Range": "00010 : 98168",
+    "Count": 19940
+  },
+  {
+    "Country": "Jersey",
+    "Code": "JE",
+    "Example URL": "api.zippopotam.us/JE/JE1",
+    "Range": "JE1 : JE3",
+    "Count": 4
+  },
+  {
+    "Country": "Japan",
+    "Code": "JP",
+    "Example URL": "api.zippopotam.us/JP/100-0001",
+    "Range": "100-0001 : 999-8531",
+    "Count": 94388
+  },
+  {
+    "Country": "Liechtenstein",
+    "Code": "LI",
+    "Example URL": "api.zippopotam.us/LI/9485",
+    "Range": "9485 : 9498",
+	  "Regex": "94[89][1-9]",
+    "EditingRegex": "(9(4([8-9][1-9]?)?)?)?",
+    "Count": 13
+  },
+  {
+    "Country": "Lithuania",
+    "Code": "LT",
+    "Example URL": "api.zippopotam.us/LT/00001",
+    "Range": "00001 : 99069",
+    "Count": 20558
+  },
+  {
+    "Country": "Luxembourg",
+    "Code": "LU",
+    "Example URL": "api.zippopotam.us/LU/L-1009",
+    "Range": "L-1009 : L-9999",
+    "Count": 4334
+  },
+  {
+    "Country": "Monaco",
+    "Code": "MC",
+    "Example URL": "api.zippopotam.us/MC/98000",
+    "Range": "98000 : 98000",
+    "Count": 29
+  },
+  {
+    "Country": "Moldavia",
+    "Code": "MD",
+    "Example URL": "api.zippopotam.us/MD/MD-2000",
+    "Range": "MD-2000 : MD-7731",
+    "Count": 1753
+  },
+  {
+    "Country": "Marshall Islands",
+    "Code": "MH",
+    "Example URL": "api.zippopotam.us/MH/96960",
+    "Range": "96960 : 96970",
+    "Count": 2
+  },
+  {
+    "Country": "Macedonia",
+    "Code": "MK",
+    "Example URL": "api.zippopotam.us/MK/1000",
+    "Range": "1000 : 7550",
+    "Count": 220
+  },
+  {
+    "Country": "Northern Mariana Islands",
+    "Code": "MP",
+    "Example URL": "api.zippopotam.us/MP/96950",
+    "Range": "96950 : 96952",
+    "Count": 4
+  },
+  {
+    "Country": "Martinique",
+    "Code": "MQ",
+    "Example URL": "api.zippopotam.us/MQ/97200",
+    "Range": "97200 : 97290",
+    "Count": 34
+  },
+  {
+    "Country": "Mexico",
+    "Code": "MX",
+    "Example URL": "api.zippopotam.us/MX/01000",
+    "Range": "01000 : 99998",
+    "Count": 75203
+  },
+  {
+    "Country": "Malaysia",
+    "Code": "MY",
+    "Example URL": "api.zippopotam.us/MY/01000",
+    "Range": "01000 : 98859",
+    "Count": 2818
+  },
+  {
+    "Country": "Holland",
+    "Code": "NL",
+    "Example URL": "api.zippopotam.us/NL/1000",
+    "Range": "1000 : 9999",
+    "Count": 5314
+  },
+  {
+    "Country": "Norway",
+    "Code": "NO",
+    "Example URL": "api.zippopotam.us/NO/0001",
+    "Range": "0001 : 9991",
+    "Count": 4574
+  },
+  {
+    "Country": "New Zealand",
+    "Code": "NZ",
+    "Example URL": "api.zippopotam.us/NZ/0110",
+    "Range": "0110 : 9893",
+    "Count": 1737
+  },
+  {
+    "Country": "Phillippines",
+    "Code": "PH",
+    "Example URL": "api.zippopotam.us/PH/0400",
+    "Range": "0400 : 9811",
+    "Count": 2232
+  },
+  {
+    "Country": "Pakistan",
+    "Code": "PK",
+    "Example URL": "api.zippopotam.us/PK/10010",
+    "Range": "10010 : 97320",
+    "Count": 11847
+  },
+  {
+    "Country": "Poland",
+    "Code": "PL",
+    "Example URL": "api.zippopotam.us/PL/00-001",
+    "Range": "00-001 : 99-440",
+    "Count": 21980
+  },
+  {
+    "Country": "Saint Pierre and Miquelon",
+    "Code": "PM",
+    "Example URL": "api.zippopotam.us/PM/97500",
+    "Range": "97500 : 97500",
+    "Count": 2
+  },
+  {
+    "Country": "Puerto Rico",
+    "Code": "PR",
+    "Example URL": "api.zippopotam.us/PR/00601",
+    "Range": "00601 : 00988",
+    "Count": 187
+  },
+  {
+    "Country": "Portugal",
+    "Code": "PT",
+    "Example URL": "api.zippopotam.us/PT/1000-001",
+    "Range": "1000-001 : 9980-999",
+    "Count": 204006
+  },
+  {
+    "Country": "French Reunion",
+    "Code": "RE",
+    "Example URL": "api.zippopotam.us/RE/97400",
+    "Range": "97400 : 97490",
+    "Count": 37
+  },
+  {
+    "Country": "Russia",
+    "Code": "RU",
+    "Example URL": "api.zippopotam.us/RU/101000",
+    "Range": "101000 : 901993",
+    "Count": 43538
+  },
+  {
+    "Country": "Sweden",
+    "Code": "SE",
+    "Example URL": "api.zippopotam.us/SE/10005",
+    "Range": "10005 : 98499",
+    "Count": 16079
+  },
+  {
+    "Country": "Slovenia",
+    "Code": "SI",
+    "Example URL": "api.zippopotam.us/SI/1000",
+    "Range": "1000 : 9600",
+    "Count": 557
+  },
+  {
+    "Country": "Svalbard & Jan Mayen Islands",
+    "Code": "SJ",
+    "Example URL": "api.zippopotam.us/SJ/8099",
+    "Range": "8099 : 9178",
+    "Count": 8
+  },
+  {
+    "Country": "Slovak Republic",
+    "Code": "SK",
+    "Example URL": "api.zippopotam.us/SK/010 01",
+    "Range": "010 01 : 992 01",
+    "Count": 4152
+  },
+  {
+    "Country": "San Marino",
+    "Code": "SM",
+    "Example URL": "api.zippopotam.us/SM/47890",
+    "Range": "47890 : 47899",
+    "Count": 26
+  },
+  {
+    "Country": "Thailand",
+    "Code": "TH",
+    "Example URL": "api.zippopotam.us/TH/10100",
+    "Range": "10100 : 96220",
+    "Count": 902
+  },
+  {
+    "Country": "Turkey",
+    "Code": "TR",
+    "Example URL": "api.zippopotam.us/TR/01000",
+    "Range": "01000 : 81950",
+    "Count": 51379
+  },
+  {
+    "Country": "United States",
+    "Code": "US",
+    "Example URL": "api.zippopotam.us/US/00210",
+    "Range": "00210 : 99950",
+    "Count": 43624
+  },
+  {
+    "Country": "Vatican",
+    "Code": "VA",
+    "Example URL": "api.zippopotam.us/VA/00120",
+    "Range": "00120 : 00120",
+    "Count": 2
+  },
+  {
+    "Country": "Virgin Islands",
+    "Code": "VI",
+    "Example URL": "api.zippopotam.us/VI/00801",
+    "Range": "00801 : 00851",
+    "Count": 16
+  },
+  {
+    "Country": "Mayotte",
+    "Code": "YT",
+    "Example URL": "api.zippopotam.us/YT/97600",
+    "Range": "97600 : 97680",
+    "Count": 17
+  },
+  {
+    "Country": "South Africa",
+    "Code": "ZA",
+    "Example URL": "api.zippopotam.us/ZA/0002",
+    "Range": "0002 : 9992",
+    "Count": 3920
+  }
+]
