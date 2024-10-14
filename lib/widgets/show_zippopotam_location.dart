@@ -6,11 +6,14 @@ import '../services/zippopotam_service.dart';
 
 class ShowZippopotamLocation extends StatelessWidget {
   const ShowZippopotamLocation(
-      {super.key, required this.countryCode, required this.postalCode});
+      {super.key,
+      required this.zippopotamService,
+      required this.countryCode,
+      required this.postalCode});
 
   final String countryCode;
   final String postalCode;
-  final ZippopotamService zippopotamService = const ZippopotamService();
+  final ZippopotamService zippopotamService; // = const ZippopotamService();
 
   @override
   Widget build(BuildContext context) {
@@ -48,18 +51,18 @@ class ShowZippopotamLocation extends StatelessWidget {
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                    Center(
-                      child: Text("GEOPOSITION:"),
-                    ),
-                    Text(place.placeName,
-                        style: TextStyle(fontWeight: FontWeight.bold)),
-                    Text("(${place.state} - ${place.stateAbbreviation})"),
-                    Text("coord: ${place.latitude}, ${place.longitude}"),
-                    Divider(),
-                  ]),
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        Center(
+                          child: Text("GEOPOSITION:"),
+                        ),
+                        Text(place.placeName,
+                            style: TextStyle(fontWeight: FontWeight.bold)),
+                        Text("(${place.state} - ${place.stateAbbreviation})"),
+                        Text("coord: ${place.latitude}, ${place.longitude}"),
+                        Divider(),
+                      ]),
                 ],
               ),
             );
@@ -72,13 +75,5 @@ class ShowZippopotamLocation extends StatelessWidget {
         },
       ),
     );
-  }
-
-  Widget _item(Place place) {
-    return ListTile(
-        title: Text(place.placeName,
-            style: TextStyle(fontWeight: FontWeight.bold)),
-        subtitle: Text("(${place.state} - ${place.stateAbbreviation})"),
-        trailing: Text("coord: ${place.latitude}, ${place.longitude}"));
   }
 }

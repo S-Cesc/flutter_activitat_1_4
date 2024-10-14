@@ -8,9 +8,10 @@ import '../services/zippopotam_service.dart';
 import '../widgets/show_zippopotam_location.dart';
 
 class ZipCodeSearchScreen extends StatefulWidget {
-  const ZipCodeSearchScreen({super.key, required this.title});
+  ZipCodeSearchScreen({super.key, required this.title});
 
   final String title;
+  final ZippopotamService zippopotamService = ZippopotamService();
 
   @override
   State<ZipCodeSearchScreen> createState() => _ZipCodeSearchScreenState();
@@ -39,16 +40,12 @@ class _ZipCodeSearchScreenState extends State<ZipCodeSearchScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        // TRY THIS: Try changing the color here to a specific color (to
-        // Colors.amber, perhaps?) and trigger a hot reload to see the AppBar
-        // change color while the other colors stay the same.
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        // Here we take the value from the MyHomePage object that was created by
-        // the App.build method, and use it to set our appbar title.
         title: Text(widget.title),
       ),
       body: Column(children: [
         DropDownCountries(
+          getCountries: widget.zippopotamService.getCountries,
           selectionCallback: (selectedCountry) {
             setState(() {
               _selectedCountry = selectedCountry;
@@ -96,6 +93,7 @@ class _ZipCodeSearchScreenState extends State<ZipCodeSearchScreen> {
               ),
               if (_value != null)
                 ShowZippopotamLocation(
+                  zippopotamService: widget.zippopotamService,
                   countryCode: _selectedCountry!.code,
                   postalCode: _value!,
                 ),

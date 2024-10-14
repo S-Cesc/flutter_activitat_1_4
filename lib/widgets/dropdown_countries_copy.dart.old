@@ -1,65 +1,65 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import '../models/country.dart';
 
 class DropDownCountries extends StatefulWidget {
-  const DropDownCountries({
-    super.key,
-    required this.getCountries,
-    this.selectionCallback,
-  });
+  const DropDownCountries({super.key, this.selectionCallback});
 
   final void Function(Country? selectedCountry)? selectionCallback;
-  final Future<List<Country>> Function() getCountries;
 
   @override
   State<DropDownCountries> createState() => _DropDownCountriesState();
 }
 
 class _DropDownCountriesState extends State<DropDownCountries> {
-  late TextEditingController _menuController;
-  late IconButton? _activeIcon;
-
+  late TextEditingController menuController;
+  late List<Country> lstCountries;
+  bool initCountries = true;
+  bool ps = true;
   Country? selectedCountry;
 
   @override
   void initState() {
     super.initState();
-    _menuController = TextEditingController();
+    menuController = TextEditingController();
     selectedCountry = null;
-    _menuController.addListener(() {
-      if (selectedCountry != null &&
-          selectedCountry!.country != _menuController.text) {
-        selectedCountry = null;
-        if (widget.selectionCallback != null) {
+    menuController.addListener(() {
+      if (menuController.text.isEmpty && !ps) {
+        ps = true;
+        setState(() {
+          selectedCountry = null;
           widget.selectionCallback!(null);
+        });
+      } else {
+        ps = false;
+        if (selectedCountry != null &&
+            selectedCountry!.country != menuController.text) {
+          setState(() {
+            selectedCountry = null;
+            widget.selectionCallback!(null);
+          });
         }
       }
     });
-    // } else if (_activeIcon == null) {
-    //   if (_menuController.text.isNotEmpty) {
-    //     setState(() {
-    //       _activeIcon =
-    //           IconButton(onPressed: _clear, icon: Icon(Icons.delete));
-    //     });
-    //   }
-    // } else if (_menuController.text.isEmpty) {
-    //   setState(() {
-    //     _activeIcon = null;
-    //   });
   }
 
   void _clear() {
-    _menuController.text = "";
-    // Aqusta acció provocarà l'acció del listener i probablement un setState
+    menuController.text = "";
+    // Aqusta acció provocarà l'acció del listener i un setState
+  }
+
+  Future<List<Country>> getCountries() async {
+    if (initCountries) {
+      var jsonString = await rootBundle.loadString("assets/data/csvjson.json");
+      lstCountries = countriesFromJson(jsonString);
+      lstCountries.sort((c1, c2) => c1.code.compareTo(c2.code));
+      initCountries = false;
+    }
+    return lstCountries;
   }
 
   @override
   Widget build(BuildContext context) {
-    if (_menuController.text.isEmpty) {
-      _activeIcon = null;
-    } else {
-      _activeIcon = IconButton(onPressed: _clear, icon: Icon(Icons.delete));
-    }
     return Row(
       children: <Widget>[
         Expanded(
@@ -67,7 +67,7 @@ class _DropDownCountriesState extends State<DropDownCountries> {
             alignment: Alignment.topCenter,
             padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 10),
             child: FutureBuilder(
-              future: widget.getCountries(),
+              future: getCountries(),
               builder: (BuildContext context,
                   AsyncSnapshot<List<Country>> snapshot) {
                 if (snapshot.connectionState == ConnectionState.waiting) {
@@ -78,8 +78,11 @@ class _DropDownCountriesState extends State<DropDownCountries> {
                   );
                 } else if (snapshot.data != null) {
                   return DropdownMenu<Country>(
-                    controller: _menuController,
-                    leadingIcon: _activeIcon,
+                    controller: menuController,
+                    leadingIcon: (menuController.text.isNotEmpty)
+                        ? IconButton(
+                            onPressed: _clear, icon: Icon(Icons.delete))
+                        : null,
                     label: const Text('Select country'),
                     hintText: "Select Menu",
                     requestFocusOnTap: true,
@@ -104,9 +107,7 @@ class _DropDownCountriesState extends State<DropDownCountries> {
                       setState(() {
                         selectedCountry = country;
                       });
-                      if (widget.selectionCallback != null) {
-                        widget.selectionCallback!(country);
-                      }
+                      widget.selectionCallback!(country);
                     },
                     dropdownMenuEntries:
                         snapshot.data!.map<DropdownMenuEntry<Country>>((c) {
@@ -131,7 +132,7 @@ class _DropDownCountriesState extends State<DropDownCountries> {
 
   @override
   void dispose() {
-    _menuController.dispose();
+    menuController.dispose();
     super.dispose();
   }
 }
