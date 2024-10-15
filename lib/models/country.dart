@@ -4,11 +4,11 @@
 
 import 'dart:convert';
 
-  List<Country> countriesFromJson(String str) =>
-      List<Country>.from(json.decode(str).map((x) => Country.fromJson(x)));
+List<Country> countriesFromJson(String str) =>
+    List<Country>.from(json.decode(str).map((x) => Country.fromJson(x)));
 
-  String countriesToJson(List<Country> data) =>
-      json.encode(List<dynamic>.from(data.map((x) => x.toJson())));
+String countriesToJson(List<Country> data) =>
+    json.encode(List<dynamic>.from(data.map((x) => x.toJson())));
 
 class Country {
   String country;
@@ -29,8 +29,13 @@ class Country {
     required this.count,
   });
 
-  RegExp? regexp({bool caseSensitive = false}) => RegExp("^$regex\$", caseSensitive: caseSensitive);
-  RegExp? editingRegexp({bool caseSensitive = false}) => RegExp("^$editingRegex\$", caseSensitive: caseSensitive);
+  String get text => "($code) $country";
+
+  RegExp? regexp({bool caseSensitive = false}) =>
+      regex == null ? null : RegExp("^$regex\$", caseSensitive: caseSensitive);
+  RegExp? editingRegexp({bool caseSensitive = false}) => editingRegex == null
+      ? null
+      : RegExp("^$editingRegex\$", caseSensitive: caseSensitive);
 
   factory Country.fromJson(Map<String, dynamic> json) => Country(
         country: json["Country"],
@@ -51,5 +56,4 @@ class Country {
         "EditingRegex": editingRegex,
         "Count": count,
       };
-
 }

@@ -32,19 +32,14 @@ class ShowZippopotamLocation extends StatelessWidget {
                   child: Text("An error occurred while accessing the data."),
                 ),
                 Center(
-                  child: Text((snapshot.error! as HttpException).message),
+                  child: Text(snapshot.error is HttpException
+                      ? (snapshot.error! as HttpException).message
+                      : snapshot.error.toString()),
                 ),
               ],
             );
           } else if (snapshot.data != null &&
               snapshot.data!.places.isNotEmpty) {
-            // return ListView.builder(
-            //     itemCount: snapshot.data!.places.length,
-            //     prototypeItem: _item(snapshot.data!.places.first),
-            //     itemBuilder: (context, index) {
-            //       return _item(snapshot.data!.places[index]);
-            //     });
-
             Iterable<Widget> places = snapshot.data!.places.map(
               (place) => Row(
                 mainAxisAlignment: MainAxisAlignment.center,

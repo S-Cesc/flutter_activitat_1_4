@@ -7,21 +7,22 @@ class TextFieldValidated extends StatefulWidget {
       {super.key,
       this.keyboardType = TextInputType.text,
       this.textAlign = TextAlign.center,
-      this.hintText = 'Enter the zip code',
+      this.hintLabel = 'Enter the zip code',
+      this.submitLabel = 'Submit',
       required this.textFieldStyle,
-      required this.submitText,
       this.inputFormatter,
       this.submitValidator,
-      required this.onSubmit});
+      required this.onSubmit, required this.onUnselected});
 
   final TextInputType keyboardType;
   final TextAlign textAlign;
-  final String hintText;
+  final String hintLabel;
   final TextStyle textFieldStyle;
-  final String submitText;
+  final String submitLabel;
   final TextInputFormatter? inputFormatter;
   final StringValidator? submitValidator;
   final ValueChanged<String> onSubmit;
+  final void Function() onUnselected;
 
   @override
   State<TextFieldValidated> createState() => _TextFieldValidatedState();
@@ -30,14 +31,15 @@ class TextFieldValidated extends StatefulWidget {
 class _TextFieldValidatedState extends State<TextFieldValidated> {
   final _focusNode = FocusNode();
   String _value = '';
+  bool submited = false;
+
+  bool get isValid => widget.submitValidator?.isValid(_value) ?? true;
 
   late TextEditingController controler = TextEditingController();
-  late bool isValid;
 
   @override
   void initState() {
     controler = TextEditingController();
-    isValid = false;
     super.initState();
   }
 
@@ -82,7 +84,7 @@ class _TextFieldValidatedState extends State<TextFieldValidated> {
                     : isValid
                         ? Colors.green
                         : Colors.red)),
-        hintText: widget.hintText,
+        hintText: widget.hintLabel,
       ),
       textInputAction: TextInputAction.done,
       focusNode: _focusNode,
@@ -92,19 +94,21 @@ class _TextFieldValidatedState extends State<TextFieldValidated> {
             ]
           : null,
       onChanged: (value) {
-        setState(() => _value = value);
+        setState(() {
+          _value = value;
+          if (submited) {
+            submited = false;
+            widget.onUnselected();
+          }
+        });
       },
       onEditingComplete: _submit,
-      // onSubmitted: (String value) async {
-      //   getHttpInfo(_selectedCountry!.code, value);
-      // },
     );
   }
 
   Widget _buildDoneButton(BuildContext context) {
-    bool valid = widget.submitValidator?.isValid(_value) ?? true;
-    return Opacity(
-      opacity: valid ? 1.0 : 0.0,
+    return Visibility(
+      visible: isValid && !submited,
       child: Container(
         constraints:
             BoxConstraints.expand(width: double.infinity, height: 60.0),
@@ -112,16 +116,16 @@ class _TextFieldValidatedState extends State<TextFieldValidated> {
           style: ButtonStyle(
               backgroundColor: WidgetStateProperty.all(Colors.green[400])),
           onPressed: _submit,
-          child: Text(widget.submitText, style: TextStyle(fontSize: 20.0)),
+          child: Text(widget.submitLabel, style: TextStyle(fontSize: 20.0)),
         ),
       ),
     );
   }
 
   void _submit() async {
-    bool valid = widget.submitValidator?.isValid(_value) ?? true;
-    if (valid) {
+    if (isValid) {
       _focusNode.unfocus();
+      submited = true;
       widget.onSubmit(_value);
     } else {
       FocusScope.of(context).requestFocus(_focusNode);

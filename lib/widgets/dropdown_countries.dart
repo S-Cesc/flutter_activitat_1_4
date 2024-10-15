@@ -35,17 +35,6 @@ class _DropDownCountriesState extends State<DropDownCountries> {
         }
       }
     });
-    // } else if (_activeIcon == null) {
-    //   if (_menuController.text.isNotEmpty) {
-    //     setState(() {
-    //       _activeIcon =
-    //           IconButton(onPressed: _clear, icon: Icon(Icons.delete));
-    //     });
-    //   }
-    // } else if (_menuController.text.isEmpty) {
-    //   setState(() {
-    //     _activeIcon = null;
-    //   });
   }
 
   void _clear() {
@@ -112,7 +101,7 @@ class _DropDownCountriesState extends State<DropDownCountries> {
                         snapshot.data!.map<DropdownMenuEntry<Country>>((c) {
                       return DropdownMenuEntry<Country>(
                         value: c,
-                        label: c.country,
+                        label: c.text,
                       );
                     }).toList(),
                   );

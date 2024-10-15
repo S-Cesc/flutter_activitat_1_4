@@ -54,50 +54,57 @@ class _ZipCodeSearchScreenState extends State<ZipCodeSearchScreen> {
           },
         ),
         if (_selectedCountry != null)
-          Column(
-            children: [
-              Container(
-                alignment: Alignment.topCenter,
-                padding: const EdgeInsets.symmetric(horizontal: 8),
-                child: Column(
-                  children: [
-                    Center(child: Text(_selectedCountry!.country)),
-                    Center(
-                      child: Text("Range: ${_selectedCountry!.range}"),
-                    ),
-                    Center(
-                      child: TextFieldValidated(
-                        submitText: 'Submit',
-                        textFieldStyle:
-                            TextStyle(fontSize: 32.0, color: Colors.black87),
-                        inputFormatter: (_selectedCountry!.regex != null)
-                            ? ValidatorInputFormatter(
-                                editingValidator: RegexValidator(
-                                    regex: _selectedCountry!
-                                        .editingRegexp(caseSensitive: false)),
-                              )
-                            : null,
-                        submitValidator: RegexValidator(
-                            regex:
-                                _selectedCountry!.regexp(caseSensitive: false)),
-                        onSubmit: (String value) {
-                          setState(() {
-                            _value = value;
-                          });
-                          getHttpInfo(_selectedCountry!.code, value);
-                        },
-                      ),
-                    ),
-                  ],
+          Container(
+            alignment: Alignment.topCenter,
+            padding: const EdgeInsets.symmetric(horizontal: 8),
+            child: Column(
+              children: [
+                Center(child: Text(_selectedCountry!.country)),
+                Center(
+                  child: Text("Range: ${_selectedCountry!.range}"),
                 ),
+                Center(
+                  child: TextFieldValidated(
+                    textFieldStyle:
+                        TextStyle(fontSize: 32.0, color: Colors.black87),
+                    inputFormatter: (_selectedCountry!.regex != null)
+                        ? ValidatorInputFormatter(
+                            editingValidator: RegexValidator(
+                                regex: _selectedCountry!
+                                    .editingRegexp(caseSensitive: false)),
+                          )
+                        : null,
+                    submitValidator: RegexValidator(
+                        regex: _selectedCountry!.regexp(caseSensitive: false)),
+                    onSubmit: (String value) {
+                      setState(() {
+                        _value = value;
+                      });
+                      getHttpInfo(_selectedCountry!.code, value);
+                    },
+                    onUnselected: () {
+                      setState(() {
+                        _value = null;
+                      });
+                    },
+                  ),
+                ),
+              ],
+            ),
+          ),
+        // Note:
+        // 1) Main column element
+        // 2) SingleChildScrollView to allow height grow
+        // 3) Expanded allow dynamically surpass column height limit
+        if (_selectedCountry != null && _value != null)
+          Expanded(
+            child: SingleChildScrollView(
+              child: ShowZippopotamLocation(
+                zippopotamService: widget.zippopotamService,
+                countryCode: _selectedCountry!.code,
+                postalCode: _value!,
               ),
-              if (_value != null)
-                ShowZippopotamLocation(
-                  zippopotamService: widget.zippopotamService,
-                  countryCode: _selectedCountry!.code,
-                  postalCode: _value!,
-                ),
-            ],
+            ),
           ),
       ]),
     );
